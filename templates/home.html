@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<style type="text/css">
+    .well{ background-color:white;}
+</style>
+{% for post in posts %}
+<div class="well">
+<div class="featurette">
+    <a href= "articles/{{ post.slug }}"><center><h2>{{ post.title }}</h2></center></a>
+     <p>{{ post.slug }}</p>
+     <p>{{ post.timestamp }}</p>
+     <p>{{ post.content}}</p>
+ </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block navlist %}
+<style type="text/css">
+    .well{ background-color:white;}
+</style>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">最热文章</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+      </div>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">最新评论</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+
+      </div>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">友情链接</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+
+      </div>
+
+{% endblock %}
