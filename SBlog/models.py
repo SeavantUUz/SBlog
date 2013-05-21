@@ -17,7 +17,7 @@ class Tag(models.Model):
 class Post(models.Model):
     '''文章'''
     title = models.CharField(max_length=200,verbose_name=u'标题')
-    author = models.CharField(max_length=100,verbose_name=u'作者')
+    author = models.CharField(default="AprocySanae",max_length=100,verbose_name=u'作者')
     slug = models.SlugField(max_length=100,verbose_name=u'Slug',help_text = u'本文的短标题，将出现在文章的url中')
     archive = models.CharField(max_length=100,verbose_name=u'归档标签',help_text = u'用于给文章分类，比如博客，心情什么的')
     count_hit = models.IntegerField(default=0,editable=False,verbose_name=u'点击数')
@@ -53,10 +53,7 @@ class Post(models.Model):
         verbose_name_plural = verbose_name = u'文章' 
         
 
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title','timestamp')
-    search_fields = ('title',)
 
 
-admin.site.register(Tag)
-admin.site.register(Post,PostAdmin)
+##admin.site.register(Tag)
+#admin.site.register(Post,PostAdmin)

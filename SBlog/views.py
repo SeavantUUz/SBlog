@@ -1,12 +1,12 @@
 # Create your views here.
+# coding=utf-8
 from SBlog.models import Post
 from django.template import loader,Context
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.db.models import Q
 from django.core.mail import send_mail
 from django.utils.http import urlquote
-
+from django.contrib.auth import authenticate,login
 
 def home(request):
     posts = Post.objects.all()
@@ -14,20 +14,23 @@ def home(request):
     c = Context({ 'posts':posts})
     return HttpResponse(t.render(c))
 
-def search(request):
-    query = request.GET.get('q','')
-    if query:
-        qset = (
-                Q(title__icontains=query) |
-                Q(abstract__icontains=query)
-                )
-        results = Post.objects.filter(qset).distinct()
-    else:
-        results = []
-    return render_to_response("search.html",{
-        "results":results,
-        "query":query
-        })
+##def login_usr(request):
+##    state = u'如果输入了正确的密码，我就会开门的说～'
+##    username = password=''
+##    if request.POST:
+##        username = request.POST.get('username')
+##        password = request.POST.get('password')
+##
+##        user = authenticate(username=username,password=password)
+##        if user is not None:
+##            if user.is_active:
+##                login(request,user)
+##                state = u'ご主人様、いらっしゃい~~~'
+##            else:
+##                state = u'是谁啊？不认识你哦？'
+##        else:
+##            state = u"输入就不对嘛，你是谁，不明人士(笑)?"
+##    return render_to_response('login.html',{'state':state,'username':username})
 
 def show_blog(request,slug):
     try:

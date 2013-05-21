@@ -14,8 +14,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'blog_db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        '': '',
-        '': '',
+        'USER': 'root',
+        'PASSWORD': 'zllgcr1123',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -103,6 +103,14 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS=(
+        "django.contrib.auth.context_processors.auth",
+        "django.core.context_processors.request",
+        "django.core.context_processors.i18n",
+        "django.contrib.messages.context_processors.messages",
+        )
+
+
 ROOT_URLCONF = 'blog.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -122,12 +130,17 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.markup',
+    'grappelli.dashboard',
+    'grappelli',
+    'epiceditor',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'SBlog',
 )
+GRAPPELLI_INDEX_DASHBOARD = 'blog.dashboard.CustomIndexDashboard'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

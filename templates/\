@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<style type="text/css">
+    .well{ background-color:white;
+    padding-top:40px;}
+
+</style>
+{{ page }}
+<div class="well">
+    <div class="featurette">
+        <a href="#"><center><h2>{{ page.title }}</h2></center></a>
+<p>{{ page.author }}</p>
+<p>{{ page.timestamp }}</p>
+<p>{{ page.content }}</p>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+{% block navlist %}
+<style type="text/css">
+    .well{ background-color:white;}
+</style>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">最热文章</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+      </div>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">最新评论</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+
+      </div>
+<div class="well sidebar-nav">
+    <ul class="nav nav-list ">
+              <li class="nav-header">友情链接</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+          </ul>
+
+      </div>
+
+{% endblock %}
