@@ -8,10 +8,12 @@ dependency plugins:
 
 + bootstrap
 + grappelli
-+ django-epiceditor
++ django-pagedown
 + python-markdown
 + Pygments
 + to be continue ....
+
+-[x] django-EricEditor remains bugs
 
 -----------------------------
 
